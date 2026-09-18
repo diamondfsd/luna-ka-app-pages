@@ -351,7 +351,7 @@ select {
 
 .platform-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
   align-items: stretch;
   gap: 14px;
   margin-top: 54px;
@@ -707,11 +707,6 @@ select {
 
   .platform-grid {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .platform-item-primary {
-    grid-column: 1 / -1;
-    min-height: 330px;
   }
 
 }
