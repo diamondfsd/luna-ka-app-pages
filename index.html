@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101216">
+    <meta
+      name="description"
+      content="Luna咔官方下载页：连接 Luna 云台相机，拍摄、监看并管理相机素材。"
+    >
+    <meta property="og:title" content="Luna咔 - 云台相机创作 App">
+    <meta
+      property="og:description"
+      content="连接、控制与创作，装进一部手机。"
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./assets/media/luna-logo.png">
+    <title>Luna咔 - 下载</title>
+    <link rel="icon" href="./assets/media/luna-logo.png">
+    <link rel="stylesheet" href="./assets/site.css">
+  </head>
+  <body class="home-page">
+    <a class="skip-link" href="#main" data-i18n="skipToContent">跳到主要内容</a>
+
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Luna咔">
+        <img src="./assets/media/luna-logo.png" alt="">
+        <span>Luna咔</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#download" data-i18n="navDownload">下载</a>
+        <a href="#features" data-i18n="navFeatures">功能</a>
+        <a href="./support.html" data-i18n="navSupport">支持</a>
+      </nav>
+      <div class="language-switcher" role="group" aria-label="Language">
+        <button type="button" data-language="zh" aria-pressed="true">中</button>
+        <button type="button" data-language="en" aria-pressed="false">EN</button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="heroEyebrow">LUNA CAMERA APP</p>
+          <h1>Luna咔</h1>
+          <p class="hero-lead" data-i18n="heroLead">
+            连接、控制与创作，装进一部手机。
+          </p>
+          <p class="hero-summary" data-i18n="heroSummary">
+            连接 Luna 云台相机，完成拍摄、监看、素材管理与导出。
+          </p>
+
+          <div class="hero-actions">
+            <a
+              class="button button-primary"
+              href="#download"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <path d="m7 10 5 5 5-5" />
+                <path d="M12 15V3" />
+              </svg>
+              <span data-i18n="heroDownload">下载</span>
+            </a>
+            <a class="button button-secondary" href="#follow-author">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21a8 8 0 0 1 16 0" />
+                <path d="M19 4v4" />
+                <path d="M17 6h4" />
+              </svg>
+              <span data-i18n="heroFollowAuthor">关注作者</span>
+            </a>
+          </div>
+
+          <dl class="hero-release" aria-live="polite">
+            <div>
+              <dt data-i18n="latestVersion">最新版本</dt>
+              <dd data-release-version data-i18n="checkingRelease">正在检查</dd>
+            </div>
+            <div>
+              <dt data-i18n="platformLabel">平台</dt>
+              <dd>Android / iOS / HarmonyOS</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <video
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="./assets/media/luna-app-1x1-poster.jpg"
+          >
+            <source src="./assets/media/luna-app-1x1.mp4" type="video/mp4">
+          </video>
+        </div>
+      </section>
+
+      <section class="download-section" id="download">
+        <div class="section-heading">
+          <p class="eyebrow eyebrow-dark" data-i18n="downloadEyebrow">DOWNLOAD</p>
+          <h2 data-i18n="downloadTitle">选择你的设备</h2>
+          <p data-i18n="downloadLead">
+            Android 可在此下载正式版 APK。iOS 与 HarmonyOS 将沿用各自平台的分发方式。
+          </p>
+        </div>
+
+        <div class="platform-grid">
+          <article class="platform-item platform-item-primary">
+            <div class="platform-heading">
+              <span class="platform-monogram">A</span>
+              <div>
+                <h3>Android</h3>
+                <p data-i18n="androidDistribution">正式版 APK</p>
+              </div>
+            </div>
+            <dl class="platform-meta">
+              <div>
+                <dt data-i18n="version">版本</dt>
+                <dd data-release-version data-i18n="checkingRelease">正在检查</dd>
+              </div>
+              <div>
+                <dt data-i18n="releaseDate">发布日期</dt>
+                <dd data-release-date>--</dd>
+              </div>
+              <div>
+                <dt data-i18n="packageSize">安装包大小</dt>
+                <dd data-release-size>--</dd>
+              </div>
+            </dl>
+            <p class="release-notes" data-release-notes hidden></p>
+            <a
+              class="button button-primary button-wide"
+              href="#follow-author"
+              data-android-download
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <path d="m7 10 5 5 5-5" />
+                <path d="M12 15V3" />
+              </svg>
+              <span data-download-label data-i18n="noRelease">暂无版本</span>
+            </a>
+          </article>
+
+          <article class="platform-item">
+            <div class="platform-heading">
+              <span class="platform-monogram">iOS</span>
+              <div>
+                <h3>iPhone</h3>
+                <p data-i18n="testFlightDistribution">TestFlight / App Store</p>
+              </div>
+            </div>
+            <p class="platform-state" data-i18n="iosLimited">名额有限，不公开</p>
+            <a class="button button-quiet button-wide" href="#follow-author">
+              <span data-i18n="followAuthorForAccess">关注作者获取</span>
+            </a>
+          </article>
+
+          <article class="platform-item">
+            <div class="platform-heading">
+              <span class="platform-monogram">H</span>
+              <div>
+                <h3>HarmonyOS</h3>
+                <p>AppGallery</p>
+              </div>
+            </div>
+            <p class="platform-state" data-harmony-state data-i18n="comingSoon">即将开放</p>
+            <a class="button button-quiet button-wide" href="#" data-harmony-link hidden>
+              <span data-i18n="openAppGallery">打开应用市场</span>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="follow-section" id="follow-author">
+        <div class="follow-grid">
+          <img
+            class="follow-qr"
+            src="./assets/media/douyin-qr.jpg"
+            alt="抖音二维码"
+            width="900"
+            height="900"
+          >
+          <div class="follow-copy">
+            <p class="eyebrow eyebrow-dark" data-i18n="followEyebrow">FOLLOW</p>
+            <h2 data-i18n="followTitle">关注作者</h2>
+            <p class="follow-lead" data-i18n="followLead">
+              版本更新、使用技巧和 iOS 测试名额会在抖音粉丝群持续发布。
+            </p>
+            <p class="follow-id">
+              <span data-i18n="followDouyinId">抖音号</span>
+              <strong>diamondfsd</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section" id="features">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow eyebrow-dark" data-i18n="featuresEyebrow">ONE APP</p>
+          <h2 data-i18n="featuresTitle">从连接到成片，一条完整工作流</h2>
+        </div>
+        <div class="feature-list">
+          <article>
+            <span>01</span>
+            <h3 data-i18n="featureConnectTitle">快速连接</h3>
+            <p data-i18n="featureConnectBody">
+              通过蓝牙与 Wi-Fi 发现并连接 Luna 云台相机。
+            </p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3 data-i18n="featureCaptureTitle">远程拍摄</h3>
+            <p data-i18n="featureCaptureBody">
+              监看画面，调整云台、变焦和拍摄参数。
+            </p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3 data-i18n="featureMediaTitle">素材管理</h3>
+            <p data-i18n="featureMediaBody">
+              浏览、下载和导出相机中的照片与视频。
+            </p>
+          </article>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <a class="brand brand-footer" href="./">
+          <img src="./assets/media/luna-logo.png" alt="">
+          <span>Luna咔</span>
+        </a>
+        <p data-i18n="footerLine">云台相机操控与创作应用。</p>
+      </div>
+      <nav aria-label="Footer">
+        <a
+          href="#follow-author"
+          data-i18n="footerFollow"
+        >关注作者</a>
+        <a href="./support.html" data-i18n="footerSupport">技术支持</a>
+        <a href="./privacy.html" data-i18n="footerPrivacy">隐私说明</a>
+        <a href="https://github.com/diamondfsd/luna-ka-app-pages" target="_blank" rel="noreferrer" data-i18n="footerSource">页面源码</a>
+      </nav>
+    </footer>
+
+    <div class="toast" role="status" aria-live="polite" data-toast hidden></div>
+    <script src="./assets/site.js" defer></script>
+  </body>
+</html>
