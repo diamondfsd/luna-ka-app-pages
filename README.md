@@ -1,6 +1,6 @@
 # Luna咔 App Pages
 
-Luna咔的独立公开下载与支持页面。项目是纯静态 HTML/CSS/JavaScript，不依赖构建工具或服务端。源码保留在私有 App 仓库的 `pages/` 目录，发布后同步到独立的公开仓库：
+Luna咔的独立公开下载与支持页面。项目是纯静态 HTML/CSS/JavaScript，不依赖构建工具或服务端。
 
 <https://github.com/diamondfsd/luna-ka-app-pages>
 
