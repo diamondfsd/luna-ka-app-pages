@@ -3,6 +3,18 @@ const SITE_CONFIG = Object.freeze({
     'https://api.gitcode.com/api/v5/repos/diamondfsd/luna-ka-app-release/releases?per_page=100',
   releasePage:
     'https://gitcode.com/diamondfsd/luna-ka-app-release/releases',
+  fallbackRelease: {
+    tag: 'v1.2.1',
+    date: '2026-09-19T08:48:58+08:00',
+    notes: '',
+    apk: {
+      name: 'LunaKa-1.2.1.apk',
+      type: 'attach',
+      size: 68630840,
+      browserDownloadUrl:
+        'https://gitcode.com/diamondfsd/luna-ka-app-release/releases/download/v1.2.1/LunaKa-1.2.1.apk',
+    },
+  },
   iosUrl: '',
   harmonyUrl: '',
 });
@@ -199,7 +211,18 @@ function normalizeAsset(asset) {
     name: String(asset?.name ?? asset?.file_name ?? '').trim(),
     type: String(asset?.type ?? '').trim().toLowerCase(),
     size: Number(asset?.size ?? 0),
+    browserDownloadUrl: String(
+      asset?.browser_download_url ?? asset?.browserDownloadUrl ?? '',
+    ).trim(),
   };
+}
+
+function releaseDownloadUrl(release) {
+  if (!release) return '';
+  const directUrl = String(release.apk?.browserDownloadUrl ?? '').trim();
+  if (directUrl) return directUrl;
+  const assetName = encodeURIComponent(release.apk?.name ?? '');
+  return `${SITE_CONFIG.releasePage}/download/${release.tag}/${assetName}`;
 }
 
 function selectLatestRelease(releases) {
@@ -255,7 +278,10 @@ function cleanReleaseNotes(notes) {
     .slice(0, 360);
 }
 
-let releaseState = { status: 'loading', release: null };
+let releaseState = {
+  status: 'loading',
+  release: SITE_CONFIG.fallbackRelease,
+};
 
 function setAllText(selector, value) {
   document.querySelectorAll(selector).forEach((element) => {
@@ -264,7 +290,8 @@ function setAllText(selector, value) {
 }
 
 function renderReleaseState() {
-  const isReady = releaseState.status === 'ready' && releaseState.release;
+  const isReady = Boolean(releaseState.release);
+  const downloadUrl = isReady ? releaseDownloadUrl(releaseState.release) : '';
   const labels = document.querySelectorAll('[data-download-label]');
   const versionLabel =
     releaseState.status === 'loading'
@@ -287,8 +314,7 @@ function renderReleaseState() {
 
   document.querySelectorAll('[data-android-download]').forEach((link) => {
     if (isReady) {
-      const assetName = encodeURIComponent(releaseState.release.apk.name);
-      link.href = `${SITE_CONFIG.releasePage}/download/${releaseState.release.tag}/${assetName}`;
+      link.href = downloadUrl;
       link.removeAttribute('aria-disabled');
     } else {
       link.href = '#follow-author';
@@ -298,10 +324,9 @@ function renderReleaseState() {
 
   const qrContainer = document.querySelector('[data-android-qr]');
   if (qrContainer) {
-    if (isReady && typeof window.qrcode === 'function') {
-      const assetName = encodeURIComponent(releaseState.release.apk.name);
-      const downloadUrl = `${SITE_CONFIG.releasePage}/download/${releaseState.release.tag}/${assetName}`;
-      const qr = window.qrcode(0, 'M');
+    const qrcode = window.qrcode ?? globalThis.qrcode;
+    if (isReady && typeof qrcode === 'function') {
+      const qr = qrcode(0, 'M');
       qr.addData(downloadUrl);
       qr.make();
       qrContainer.innerHTML = qr.createSvgTag({
@@ -327,7 +352,10 @@ function renderReleaseState() {
 }
 
 async function loadLatestRelease() {
-  releaseState = { status: 'loading', release: null };
+  releaseState = {
+    status: 'loading',
+    release: SITE_CONFIG.fallbackRelease,
+  };
   renderReleaseState();
 
   const controller = new AbortController();
@@ -345,7 +373,10 @@ async function loadLatestRelease() {
       ? { status: 'ready', release: latest }
       : { status: 'empty', release: null };
   } catch {
-    releaseState = { status: 'error', release: null };
+    releaseState = {
+      status: 'error',
+      release: SITE_CONFIG.fallbackRelease,
+    };
   } finally {
     window.clearTimeout(timeout);
     renderReleaseState();
