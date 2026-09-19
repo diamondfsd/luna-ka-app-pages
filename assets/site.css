@@ -743,6 +743,11 @@ select {
   font-size: 14px;
 }
 
+.legal-panel p {
+  max-width: 760px;
+  font-size: 14px;
+}
+
 @media (max-width: 980px) {
   .hero {
     grid-template-columns: 1fr;
