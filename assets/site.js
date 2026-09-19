@@ -22,9 +22,11 @@ const SITE_CONFIG = Object.freeze({
 const TRANSLATIONS = {
   zh: {
     skipToContent: '跳到主要内容',
+    navHome: '首页',
     navDownload: '下载',
     navFeatures: '功能',
     navSupport: '支持',
+    navPrivacy: '隐私',
     navPc: 'PC 版',
     heroEyebrow: 'LUNA CAMERA APP',
     heroLead: '你的云台摄影专家',
@@ -73,9 +75,10 @@ const TRANSLATIONS = {
     personalDevelopmentWork: '个人开发作品',
     footerDownload: '下载',
     backHome: '返回下载页',
+    supportBackHome: '返回首页',
     supportEyebrow: 'SUPPORT',
     supportTitle: '技术支持',
-    supportLead: '安装或连接相机遇到问题时，请先完成下面的基础检查。',
+    supportLead: '使用 Luna咔时需要帮助，或希望反馈问题与建议，请通过电子邮件联系我们。',
     privacyEyebrow: 'PRIVACY',
     privacyTitle: '隐私说明',
     privacyLead:
@@ -87,9 +90,11 @@ const TRANSLATIONS = {
   },
   en: {
     skipToContent: 'Skip to content',
+    navHome: 'Home',
     navDownload: 'Download',
     navFeatures: 'Features',
     navSupport: 'Support',
+    navPrivacy: 'Privacy',
     navPc: 'PC',
     heroEyebrow: 'LUNA CAMERA APP',
     heroLead: 'Your gimbal photography expert',
@@ -139,10 +144,11 @@ const TRANSLATIONS = {
     personalDevelopmentWork: 'Personal development work',
     footerDownload: 'Download',
     backHome: 'Back to download',
+    supportBackHome: 'Back to home',
     supportEyebrow: 'SUPPORT',
     supportTitle: 'Technical support',
     supportLead:
-      'If installation or camera connection fails, start with the checks below.',
+      'For help with Luna咔, or to report an issue or suggestion, contact us by email.',
     privacyEyebrow: 'PRIVACY',
     privacyTitle: 'Privacy',
     privacyLead:
