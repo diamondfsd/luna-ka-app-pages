@@ -351,7 +351,7 @@ select {
 
 .platform-grid {
   display: grid;
-  grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1.4fr repeat(2, minmax(0, 1fr));
   align-items: stretch;
   gap: 14px;
   margin-top: 54px;
@@ -415,7 +415,42 @@ select {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
-  margin: 42px 0 0;
+  margin: 0;
+}
+
+.android-download-layout {
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr);
+  align-items: center;
+  gap: 22px;
+  margin-top: 32px;
+}
+
+.android-qr-panel {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 9px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 12px;
+  font-weight: 680;
+}
+
+.android-qr {
+  display: grid;
+  width: 128px;
+  height: 128px;
+  place-items: center;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--night);
+  font-size: 12px;
+}
+
+.android-qr svg {
+  display: block;
+  width: 112px;
+  height: 112px;
 }
 
 .platform-meta dd {
@@ -792,6 +827,17 @@ select {
 
   .platform-meta {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .android-download-layout {
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .android-qr,
+  .android-qr svg {
+    width: 104px;
+    height: 104px;
   }
 
   .feature-list {

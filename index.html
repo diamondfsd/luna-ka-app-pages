@@ -31,6 +31,7 @@
         <a href="#download" data-i18n="navDownload">下载</a>
         <a href="#features" data-i18n="navFeatures">功能</a>
         <a href="./support.html" data-i18n="navSupport">支持</a>
+        <a href="http://luna.diamondfsd.com/" target="_blank" rel="noreferrer" data-i18n="navPc">PC 版</a>
       </nav>
       <div class="language-switcher" role="group" aria-label="Language">
         <button type="button" data-language="zh" aria-pressed="true">中</button>
@@ -103,7 +104,7 @@
           <p class="eyebrow eyebrow-dark" data-i18n="downloadEyebrow">DOWNLOAD</p>
           <h2 data-i18n="downloadTitle">选择你的设备</h2>
           <p data-i18n="downloadLead">
-            Android 可在此下载正式版 APK，PC 版可直接在浏览器打开。
+            Android 可在此下载正式版 APK。
           </p>
         </div>
 
@@ -116,20 +117,26 @@
                 <p data-i18n="androidDistribution">正式版 APK</p>
               </div>
             </div>
-            <dl class="platform-meta">
-              <div>
-                <dt data-i18n="version">版本</dt>
-                <dd data-release-version data-i18n="checkingRelease">正在检查</dd>
+            <div class="android-download-layout">
+              <div class="android-qr-panel">
+                <div class="android-qr" data-android-qr aria-hidden="true"></div>
+                <span data-i18n="scanToDownload">扫码下载</span>
               </div>
-              <div>
-                <dt data-i18n="releaseDate">发布日期</dt>
-                <dd data-release-date>--</dd>
-              </div>
-              <div>
-                <dt data-i18n="packageSize">安装包大小</dt>
-                <dd data-release-size>--</dd>
-              </div>
-            </dl>
+              <dl class="platform-meta">
+                <div>
+                  <dt data-i18n="version">版本</dt>
+                  <dd data-release-version data-i18n="checkingRelease">正在检查</dd>
+                </div>
+                <div>
+                  <dt data-i18n="releaseDate">发布日期</dt>
+                  <dd data-release-date>--</dd>
+                </div>
+                <div>
+                  <dt data-i18n="packageSize">安装包大小</dt>
+                  <dd data-release-size>--</dd>
+                </div>
+              </dl>
+            </div>
             <p class="release-notes" data-release-notes hidden></p>
             <a
               class="button button-primary button-wide"
@@ -142,25 +149,6 @@
                 <path d="M12 15V3" />
               </svg>
               <span data-download-label data-i18n="noRelease">暂无版本</span>
-            </a>
-          </article>
-
-          <article class="platform-item">
-            <div class="platform-heading">
-              <span class="platform-monogram">PC</span>
-              <div>
-                <h3>PC 版</h3>
-                <p data-i18n="pcDistribution">桌面端网页</p>
-              </div>
-            </div>
-            <p class="platform-state" data-i18n="pcAvailable">浏览器打开</p>
-            <a
-              class="button button-quiet button-wide"
-              href="http://luna.diamondfsd.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span data-i18n="openPcVersion">打开 PC 版</span>
             </a>
           </article>
 
@@ -269,6 +257,7 @@
     </footer>
 
     <div class="toast" role="status" aria-live="polite" data-toast hidden></div>
+    <script src="./assets/qrcode-generator.js" defer></script>
     <script src="./assets/site.js" defer></script>
   </body>
 </html>

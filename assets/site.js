@@ -13,12 +13,14 @@ const TRANSLATIONS = {
     navDownload: '下载',
     navFeatures: '功能',
     navSupport: '支持',
+    navPc: 'PC 版',
     heroEyebrow: 'LUNA CAMERA APP',
     heroLead: '你的云台摄影专家',
     heroSummary: '连接 Luna 云台相机，完成拍摄、监看、素材管理与导出。',
     heroDownload: '下载',
     heroFollowAuthor: '关注作者',
     downloadApk: '下载正式版',
+    scanToDownload: '扫码下载',
     copyLink: '复制页面链接',
     copied: '页面链接已复制',
     copyFailed: '无法复制，请从地址栏复制链接',
@@ -28,11 +30,8 @@ const TRANSLATIONS = {
     downloadEyebrow: 'DOWNLOAD',
     downloadTitle: '选择你的设备',
     downloadLead:
-      'Android 可在此下载正式版 APK，PC 版可直接在浏览器打开。',
+      'Android 可在此下载正式版 APK。',
     androidDistribution: '正式版 APK',
-    pcDistribution: '桌面端网页',
-    pcAvailable: '浏览器打开',
-    openPcVersion: '打开 PC 版',
     version: '版本',
     releaseDate: '发布日期',
     packageSize: '安装包大小',
@@ -78,6 +77,7 @@ const TRANSLATIONS = {
     navDownload: 'Download',
     navFeatures: 'Features',
     navSupport: 'Support',
+    navPc: 'PC',
     heroEyebrow: 'LUNA CAMERA APP',
     heroLead: 'Your gimbal photography expert',
     heroSummary:
@@ -85,6 +85,7 @@ const TRANSLATIONS = {
     heroDownload: 'Download',
     heroFollowAuthor: 'Follow author',
     downloadApk: 'Download release',
+    scanToDownload: 'Scan to download',
     copyLink: 'Copy page link',
     copied: 'Page link copied',
     copyFailed: 'Copy failed. Use the address bar instead.',
@@ -94,11 +95,8 @@ const TRANSLATIONS = {
     downloadEyebrow: 'DOWNLOAD',
     downloadTitle: 'Choose your device',
     downloadLead:
-      'Download the release APK for Android, or open the PC version directly in your browser.',
+      'Download the release APK for Android.',
     androidDistribution: 'Release APK',
-    pcDistribution: 'Desktop web app',
-    pcAvailable: 'Open in browser',
-    openPcVersion: 'Open PC version',
     version: 'Version',
     releaseDate: 'Released',
     packageSize: 'Package size',
@@ -297,6 +295,24 @@ function renderReleaseState() {
       link.setAttribute('aria-disabled', 'true');
     }
   });
+
+  const qrContainer = document.querySelector('[data-android-qr]');
+  if (qrContainer) {
+    if (isReady && typeof window.qrcode === 'function') {
+      const assetName = encodeURIComponent(releaseState.release.apk.name);
+      const downloadUrl = `${SITE_CONFIG.releasePage}/download/${releaseState.release.tag}/${assetName}`;
+      const qr = window.qrcode(0, 'M');
+      qr.addData(downloadUrl);
+      qr.make();
+      qrContainer.innerHTML = qr.createSvgTag({
+        cellSize: 4,
+        margin: 2,
+        scalable: true,
+      });
+    } else {
+      qrContainer.textContent = isReady ? translate('downloadApk') : translate('noRelease');
+    }
+  }
 
   labels.forEach((label) => {
     label.textContent = isReady ? translate('downloadApk') : translate('noRelease');
