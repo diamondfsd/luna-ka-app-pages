@@ -4,15 +4,15 @@ const SITE_CONFIG = Object.freeze({
   releasePage:
     'https://gitcode.com/diamondfsd/luna-ka-app-release/releases',
   fallbackRelease: {
-    tag: 'v1.2.3',
-    date: '2026-09-19T10:10:01+08:00',
+    tag: 'v1.2.4',
+    date: '2026-09-20T00:20:19+08:00',
     notes: '',
     apk: {
-      name: 'LunaKa-1.2.3.apk',
+      name: 'LunaKa-1.2.4.apk',
       type: 'attach',
-      size: 69953063,
+      size: 70182963,
       browserDownloadUrl:
-        'https://gitcode.com/diamondfsd/luna-ka-app-release/releases/download/v1.2.3/LunaKa-1.2.3.apk',
+        'https://gitcode.com/diamondfsd/luna-ka-app-release/releases/download/v1.2.4/LunaKa-1.2.4.apk',
     },
   },
   iosUrl: '',
