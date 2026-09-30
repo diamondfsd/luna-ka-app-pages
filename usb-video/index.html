@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Luna USB Video</title>
+    <style>
+      :root { color-scheme: dark; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+      body { margin: 0; min-height: 100vh; background: #101216; color: #f2f4f8; }
+      main { width: min(1100px, calc(100% - 32px)); margin: 24px auto; }
+      header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+      h1 { margin: 0; font-size: 22px; }
+      #status { color: #8d98a8; font-size: 14px; }
+      .stage { margin-top: 20px; aspect-ratio: 16 / 9; display: grid; place-items: center; background: #050607; border: 1px solid #28303a; }
+      #frame { max-width: 100%; max-height: 100%; display: none; image-rendering: auto; }
+      #empty { color: #727d8c; }
+      .stats { display: flex; gap: 22px; margin-top: 14px; color: #9da8b8; font-size: 13px; }
+      code { color: #69a7ff; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header><h1>Luna USB Video Demo</h1><div id="status">连接服务中...</div></header>
+      <section class="stage"><div id="empty">等待手机发送 Luna 媒体帧</div><img id="frame" alt="Luna USB video frame" /></section>
+      <div class="stats"><span id="phase">状态: waiting</span><span id="frames">帧数: 0</span><span id="bytes">字节: 0</span></div>
+      <p><code>UCD2</code> / media <code>0x01</code> / video <code>0x20</code></p>
+    </main>
+    <script>
+      const status = document.querySelector('#status');
+      const phase = document.querySelector('#phase');
+      const frames = document.querySelector('#frames');
+      const bytes = document.querySelector('#bytes');
+      const empty = document.querySelector('#empty');
+      const image = document.querySelector('#frame');
+      const socket = new WebSocket(`ws://${location.host}`);
+      socket.onmessage = ({ data }) => {
+        const message = JSON.parse(data);
+        if (message.type === 'status') {
+          status.textContent = message.message;
+          phase.textContent = `状态: ${message.phase}`;
+          frames.textContent = `帧数: ${message.frames}`;
+          bytes.textContent = `字节: ${message.bytes}`;
+        } else if (message.type === 'frame') {
+          image.src = `data:${message.mime};base64,${message.data}`;
+          image.style.display = 'block';
+          empty.style.display = 'none';
+          frames.textContent = `帧数: ${message.frames}`;
+          bytes.textContent = `字节: ${message.bytes}`;
+        }
+      };
+      socket.onclose = () => { status.textContent = '服务已断开'; };
+    </script>
+  </body>
+</html>

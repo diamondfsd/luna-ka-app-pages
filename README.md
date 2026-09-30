@@ -33,7 +33,8 @@ python3 -m http.server 4173
 - `releaseApi`：GitCode 公开 Release API。
 - `releasePage`：Release 总览与附件下载地址前缀。
 - `iosUrl`：TestFlight 或 App Store 链接，配置后自动替换“即将开放”。
-- `harmonyUrl`：AppGallery 链接，配置后自动替换“即将开放”。
+
+HarmonyOS 版本通过 AppGallery 分发，下载页与 iOS 一样引导用户关注作者获取。
 
 ## 部署
 

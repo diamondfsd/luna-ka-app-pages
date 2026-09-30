@@ -16,7 +16,6 @@ const SITE_CONFIG = Object.freeze({
     },
   },
   iosUrl: '',
-  harmonyUrl: '',
 });
 
 const TRANSLATIONS = {
@@ -52,9 +51,7 @@ const TRANSLATIONS = {
     testFlightDistribution: 'TestFlight / App Store',
     iosLimited: '名额有限，不公开',
     followAuthorForAccess: '关注作者获取',
-    comingSoon: '即将开放',
     openTestFlight: '打开 TestFlight',
-    openAppGallery: '打开应用市场',
     featuresEyebrow: 'ONE APP',
     featuresTitle: '从连接到成片，一条完整工作流',
     featureConnectTitle: '快速连接',
@@ -121,9 +118,7 @@ const TRANSLATIONS = {
     testFlightDistribution: 'TestFlight / App Store',
     iosLimited: 'Limited access, not public',
     followAuthorForAccess: 'Follow for access',
-    comingSoon: 'Coming soon',
     openTestFlight: 'Open TestFlight',
-    openAppGallery: 'Open AppGallery',
     featuresEyebrow: 'ONE APP',
     featuresTitle: 'A complete workflow from connection to finished media',
     featureConnectTitle: 'Quick connection',
@@ -399,16 +394,6 @@ function configureOptionalPlatformLinks() {
       iosLink.href = SITE_CONFIG.iosUrl;
       iosLink.hidden = false;
       iosState.hidden = true;
-    }
-  }
-
-  const harmonyLink = document.querySelector('[data-harmony-link]');
-  const harmonyState = document.querySelector('[data-harmony-state]');
-  if (harmonyLink && harmonyState) {
-    if (SITE_CONFIG.harmonyUrl) {
-      harmonyLink.href = SITE_CONFIG.harmonyUrl;
-      harmonyLink.hidden = false;
-      harmonyState.hidden = true;
     }
   }
 }
