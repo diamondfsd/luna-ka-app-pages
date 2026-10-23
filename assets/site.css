@@ -408,6 +408,12 @@ select {
   font-weight: 800;
 }
 
+.platform-monogram svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+
 .platform-item-primary .platform-monogram {
   border-color: rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.08);

@@ -55,3 +55,5 @@ iOS 和 HarmonyOS 下载按钮直接跳转对应测试邀请链接，无需关�
 node --check assets/site.js
 tidy -errors -q index.html support.html privacy.html
 ```
+
+平台标识使用 [Simple Icons](https://simpleicons.org/) 的 Android、Apple 和 HarmonyOS SVG，按各品牌商标规范使用。
