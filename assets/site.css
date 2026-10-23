@@ -358,6 +358,7 @@ select {
 }
 
 .platform-item {
+  min-width: 0;
   display: flex;
   min-height: 360px;
   flex-direction: column;
