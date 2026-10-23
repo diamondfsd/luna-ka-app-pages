@@ -351,7 +351,7 @@ select {
 
 .platform-grid {
   display: grid;
-  grid-template-columns: 1.4fr repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
   align-items: stretch;
   gap: 14px;
   margin-top: 54px;
@@ -368,6 +368,7 @@ select {
 }
 
 .platform-item-primary {
+  grid-row: span 2;
   background: var(--night);
   color: #fff;
 }
@@ -486,14 +487,59 @@ select {
   margin-top: auto;
 }
 
-.button-quiet {
-  border-color: var(--line);
-  background: transparent;
-  color: var(--ink);
+.platform-item-ios,
+.platform-item-harmony {
+  min-height: 0;
+  gap: 28px;
+  padding: 28px;
+  background: linear-gradient(135deg, #fff, #edf3ff);
+  border-color: rgba(36, 107, 254, 0.18);
 }
 
-.button-quiet:hover {
-  border-color: var(--ink);
+.platform-item-harmony {
+  background: linear-gradient(135deg, #fffdfb, #fff0eb);
+  border-color: rgba(185, 74, 47, 0.18);
+}
+
+.platform-item-ios .platform-monogram {
+  background: #e3ecff;
+  color: var(--blue-deep);
+  border-color: transparent;
+}
+
+.platform-item-harmony .platform-monogram {
+  background: #ffe2d8;
+  color: #a63e25;
+  border-color: transparent;
+}
+
+.button-platform {
+  justify-content: space-between;
+  border-color: transparent;
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(36, 107, 254, 0.16);
+}
+
+.button-platform:hover {
+  background: var(--blue-deep);
+}
+
+.platform-item-harmony .button-platform {
+  background: #b94a2f;
+  box-shadow: 0 6px 16px rgba(185, 74, 47, 0.16);
+}
+
+.platform-item-harmony .button-platform:hover {
+  background: #9e3b24;
+}
+
+.platform-item .button-wide {
+  min-height: 52px;
+}
+
+.platform-item-primary .button-wide {
+  margin-top: 24px;
 }
 
 .follow-section {
@@ -857,10 +903,11 @@ select {
   }
 
   .platform-item {
-    min-height: 300px;
+    min-height: 0;
   }
 
   .platform-item-primary {
+    grid-row: auto;
     grid-column: auto;
   }
 
