@@ -15,7 +15,8 @@ const SITE_CONFIG = Object.freeze({
         'https://gitcode.com/diamondfsd/luna-ka-app-release/releases/download/v1.2.4/LunaKa-1.2.4.apk',
     },
   },
-  iosUrl: '',
+  iosUrl: 'https://testflight.apple.com/join/7f59YZEH',
+  harmonyUrl: 'https://appgallery.huawei.com/link/invite-test-wap?taskId=5516df78278c1ba392cb20d356989d1c&invitationCode=5Z1nVRaK8Di',
 });
 
 const TRANSLATIONS = {
@@ -48,10 +49,9 @@ const TRANSLATIONS = {
     version: '版本',
     releaseDate: '发布日期',
     packageSize: '安装包大小',
-    testFlightDistribution: 'TestFlight / App Store',
-    iosLimited: '名额有限，不公开',
-    followAuthorForAccess: '关注作者获取',
+    testFlightDistribution: 'TestFlight',
     openTestFlight: '打开 TestFlight',
+    openAppGallery: '打开 AppGallery',
     featuresEyebrow: 'ONE APP',
     featuresTitle: '从连接到成片，一条完整工作流',
     featureConnectTitle: '快速连接',
@@ -62,7 +62,7 @@ const TRANSLATIONS = {
     featureMediaBody: '浏览、下载和导出相机中的照片与视频。',
     followEyebrow: 'FOLLOW',
     followTitle: '关注作者',
-    followLead: '版本更新、使用技巧和 iOS 测试名额会在抖音粉丝群持续发布。',
+    followLead: '版本更新和使用技巧会在抖音粉丝群持续发布。',
     followDouyinId: '抖音号',
     footerLine: '你的云台摄影专家',
     footerFollow: '关注作者',
@@ -115,10 +115,9 @@ const TRANSLATIONS = {
     version: 'Version',
     releaseDate: 'Released',
     packageSize: 'Package size',
-    testFlightDistribution: 'TestFlight / App Store',
-    iosLimited: 'Limited access, not public',
-    followAuthorForAccess: 'Follow for access',
+    testFlightDistribution: 'TestFlight',
     openTestFlight: 'Open TestFlight',
+    openAppGallery: 'Open AppGallery',
     featuresEyebrow: 'ONE APP',
     featuresTitle: 'A complete workflow from connection to finished media',
     featureConnectTitle: 'Quick connection',
@@ -129,7 +128,7 @@ const TRANSLATIONS = {
     featureMediaBody: 'Browse, download, and export photos and videos from the camera.',
     followEyebrow: 'FOLLOW',
     followTitle: 'Follow the author',
-    followLead: 'Version updates, tips, and iOS test access are shared in the Douyin fan group.',
+    followLead: 'Version updates and tips are shared in the Douyin fan group.',
     followDouyinId: 'Douyin ID',
     footerLine: 'Your gimbal photography expert.',
     footerFollow: 'Follow author',
@@ -387,15 +386,12 @@ async function loadLatestRelease() {
 }
 
 function configureOptionalPlatformLinks() {
-  const iosLink = document.querySelector('[data-ios-link]');
-  const iosState = document.querySelector('[data-ios-state]');
-  if (iosLink && iosState) {
-    if (SITE_CONFIG.iosUrl) {
-      iosLink.href = SITE_CONFIG.iosUrl;
-      iosLink.hidden = false;
-      iosState.hidden = true;
-    }
-  }
+  document.querySelectorAll('[data-ios-link]').forEach((link) => {
+    link.href = SITE_CONFIG.iosUrl;
+  });
+  document.querySelectorAll('[data-harmony-link]').forEach((link) => {
+    link.href = SITE_CONFIG.harmonyUrl;
+  });
 }
 
 function configureLanguageSwitcher() {
