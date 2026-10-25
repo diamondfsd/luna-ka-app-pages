@@ -16,7 +16,7 @@ const SITE_CONFIG = Object.freeze({
     },
   },
   iosUrl: 'https://testflight.apple.com/join/7f59YZEH',
-  harmonyUrl: 'https://appgallery.huawei.com/link/invite-test-wap?taskId=5516df78278c1ba392cb20d356989d1c&invitationCode=5Z1nVRaK8Di',
+  harmonyUrl: 'https://appgallery.huawei.com/link/invite-test-wap?taskId=9ab54119dfdc48bd9764ec0f6e090fa5&invitationCode=8olb4RZQ7WF',
 });
 
 const TRANSLATIONS = {
