@@ -4,15 +4,15 @@ const SITE_CONFIG = Object.freeze({
   releasePage:
     'https://gitcode.com/diamondfsd/luna-ka-app-release/releases',
   fallbackRelease: {
-    tag: 'v1.2.4',
-    date: '2026-09-20T00:20:19+08:00',
+    tag: 'v1.3.9',
+    date: '2026-10-29T22:59:50+08:00',
     notes: '',
     apk: {
-      name: 'LunaKa-1.2.4.apk',
+      name: 'LunaKa-1.3.9.apk',
       type: 'attach',
-      size: 70182963,
+      size: 104227651,
       browserDownloadUrl:
-        'https://gitcode.com/diamondfsd/luna-ka-app-release/releases/download/v1.2.4/LunaKa-1.2.4.apk',
+        'https://gitcode.com/diamondfsd/luna-ka-app-release/releases/download/v1.3.9/LunaKa-1.3.9.apk',
     },
   },
   iosUrl: 'https://testflight.apple.com/join/7f59YZEH',
@@ -365,15 +365,18 @@ async function loadLatestRelease() {
   try {
     const response = await fetch(SITE_CONFIG.releaseApi, {
       headers: { Accept: 'application/json' },
+      cache: 'no-store',
       signal: controller.signal,
     });
     if (!response.ok) throw new Error(`Release API returned ${response.status}`);
     const payload = await response.json();
     const releases = Array.isArray(payload) ? payload : payload?.data ?? [];
     const latest = selectLatestRelease(releases);
-    releaseState = latest
-      ? { status: 'ready', release: latest }
-      : { status: 'empty', release: null };
+    const fallback = SITE_CONFIG.fallbackRelease;
+    const release = latest && compareVersions(latest.version, parseVersion(fallback.tag)) >= 0
+      ? latest
+      : fallback;
+    releaseState = { status: 'ready', release };
   } catch {
     releaseState = {
       status: 'error',

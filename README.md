@@ -14,7 +14,7 @@ Android 下载地址按以下固定规则生成：
 https://gitcode.com/diamondfsd/luna-ka-app-release/releases/download/{tag}/{asset}
 ```
 
-如果没有公开 Release，下载区域只显示“暂无版本”；发布正式版本并上传 `.apk` 附件后，页面会自动显示版本、日期、文件大小和直接下载按钮。
+页面内置已确认的 Android 版本作为保底；当 Release API 无法访问、没有可用 APK 或返回较旧版本时，仍显示保底版本。发布正式版本并上传 `.apk` 附件后，页面会自动显示更新的版本、日期、文件大小和直接下载按钮。每次发布 Android 版本时也应更新 `SITE_CONFIG.fallbackRelease`，并修改首页的 `site.js` 版本参数以减少旧脚本缓存。
 
 ## 本地预览
 
